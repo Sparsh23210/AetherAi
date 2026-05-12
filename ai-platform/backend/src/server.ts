@@ -41,7 +41,11 @@ const limiter = rateLimit({
 });
 app.use('/api/', limiter);
 
-// Health Check
+// Health Check & Root Route
+app.get('/', (req, res) => {
+  res.status(200).send('Aether AI API is Live.');
+});
+
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'Aether AI Backend is running.' });
 });
