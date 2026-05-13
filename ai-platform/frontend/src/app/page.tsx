@@ -139,6 +139,7 @@ export default function Home() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search tools, categories, or workflows..." 
                 className="w-full bg-transparent text-white px-4 py-4 focus:outline-none placeholder:text-slate-500"
+                suppressHydrationWarning
               />
               <button type="submit" className="bg-indigo-600 hover:bg-indigo-500 px-6 py-4 font-medium transition flex items-center gap-2">
                 Search
