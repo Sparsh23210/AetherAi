@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Aether AI | Architecting Intelligence",
   description: "The elite platform for discovering, comparing, and launching world-class artificial intelligence.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
