@@ -40,6 +40,15 @@ CREATE TABLE public.ai_tools (
     quality_score INTEGER CHECK (quality_score BETWEEN 1 AND 10),
     popularity_score INTEGER DEFAULT 0,
     active_status BOOLEAN DEFAULT true,
+    is_launched BOOLEAN DEFAULT false,
+    founder_id UUID,
+    founder_name TEXT,
+    founder_email TEXT,
+    co_founder_name TEXT,
+    contact_number TEXT,
+    category_name TEXT,
+    votes JSONB DEFAULT '[]',
+    comments JSONB DEFAULT '[]',
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );

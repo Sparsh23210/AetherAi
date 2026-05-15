@@ -179,7 +179,7 @@ export const updateTool = asyncHandler(async (req: AuthRequest, res: Response) =
   const {
     name, description, short_description, website_url, logo_url,
     pricing_type, speed_score, quality_score, founder_name,
-    co_founder_name, category_name
+    co_founder_name, category_name, contact_number, founder_email
   } = req.body;
 
   const updateData: any = {};
@@ -194,6 +194,8 @@ export const updateTool = asyncHandler(async (req: AuthRequest, res: Response) =
   if (founder_name !== undefined) updateData.founder_name = founder_name;
   if (co_founder_name !== undefined) updateData.co_founder_name = co_founder_name;
   if (category_name !== undefined) updateData.category_name = category_name;
+  if (contact_number !== undefined) updateData.contact_number = contact_number;
+  if (founder_email !== undefined) updateData.founder_email = founder_email;
 
   // Re-generate slug if name changes
   if (name) {

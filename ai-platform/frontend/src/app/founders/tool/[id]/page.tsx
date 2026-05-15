@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { auth } from '@/lib/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { createClient } from '@/lib/supabase';
-import { Rocket, MessageSquare, ChevronUp, ExternalLink, ArrowLeft, Send, User, Calendar, ShieldCheck, Zap, Loader2, Star } from 'lucide-react';
+import { Rocket, MessageSquare, ChevronUp, ExternalLink, ArrowLeft, Send, User, Calendar, ShieldCheck, Zap, Loader2, Star, Mail, Smartphone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function ToolDetailPage() {
@@ -302,6 +302,20 @@ export default function ToolDetailPage() {
                   <div>
                     <p className="text-slate-500 text-[10px] uppercase font-bold">Launched On</p>
                     <p className="text-slate-200">{new Date(tool.created_at).toLocaleDateString()}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 text-sm font-medium">
+                  <Mail className="text-slate-600" size={18} />
+                  <div>
+                    <p className="text-slate-500 text-[10px] uppercase font-bold">Founder Email</p>
+                    <p className="text-indigo-400 font-bold break-all">{tool.founder_email || 'Not provided'}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 text-sm font-medium">
+                  <Smartphone className="text-slate-600" size={18} />
+                  <div>
+                    <p className="text-slate-500 text-[10px] uppercase font-bold">Contact Number</p>
+                    <p className="text-indigo-400 font-bold">{tool.contact_number || 'Not provided'}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 text-sm font-medium">

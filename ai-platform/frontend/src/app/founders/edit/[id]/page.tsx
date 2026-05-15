@@ -8,7 +8,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { createClient } from '@/lib/supabase';
-import { Rocket, Sparkles, LayoutGrid, Globe, Type, Image as ImageIcon, CheckCircle2, Loader2, ArrowRight, Upload, X, User, Zap, Star } from 'lucide-react';
+import { Rocket, Sparkles, LayoutGrid, Globe, Type, Image as ImageIcon, CheckCircle2, Loader2, ArrowRight, Upload, X, User, Zap, Star, Mail, Smartphone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import AuthGate from '@/components/AuthGate';
 
@@ -32,6 +32,8 @@ export default function EditToolPage() {
     logoUrl: '',
     founderName: '',
     coFounderName: '',
+    founderEmail: '',
+    contactNumber: '',
     category: 'Productivity',
     pricingType: 'Freemium',
     customCategory: '',
@@ -76,6 +78,8 @@ export default function EditToolPage() {
             logoUrl: data.logo_url || '',
             founderName: data.founder_name,
             coFounderName: data.co_founder_name || '',
+            founderEmail: data.founder_email || '',
+            contactNumber: data.contact_number || '',
             category: data.category_name,
             pricingType: data.pricing_type,
             customCategory: '',
@@ -192,6 +196,8 @@ export default function EditToolPage() {
         quality_score: formData.qualityScore,
         founder_name: formData.founderName,
         co_founder_name: formData.coFounderName,
+        founder_email: formData.founderEmail,
+        contact_number: formData.contactNumber,
         category_name: finalCategory
       };
 
@@ -407,6 +413,38 @@ export default function EditToolPage() {
                   onChange={(e) => setFormData({...formData, coFounderName: e.target.value})} 
                   className="w-full bg-slate-950 border border-slate-800 rounded-2xl py-3 px-6 focus:border-indigo-500 outline-none transition" 
                   placeholder="e.g. Jane Doe" 
+                />
+             </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+             {/* Founder Email */}
+             <div className="space-y-3">
+                <label className="text-xs font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                  <Mail size={14} /> Founder Email
+                </label>
+                <input 
+                  required 
+                  type="email"
+                  value={formData.founderEmail} 
+                  onChange={(e) => setFormData({...formData, founderEmail: e.target.value})} 
+                  className="w-full bg-slate-950 border border-slate-800 rounded-2xl py-3 px-6 focus:border-indigo-500 outline-none transition" 
+                  placeholder="email@example.com" 
+                />
+             </div>
+
+             {/* Contact Number */}
+             <div className="space-y-3">
+                <label className="text-xs font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                  <Smartphone size={14} /> Contact Number
+                </label>
+                <input 
+                  required 
+                  type="tel"
+                  value={formData.contactNumber} 
+                  onChange={(e) => setFormData({...formData, contactNumber: e.target.value})} 
+                  className="w-full bg-slate-950 border border-slate-800 rounded-2xl py-3 px-6 focus:border-indigo-500 outline-none transition" 
+                  placeholder="+1 (555) 000-0000" 
                 />
              </div>
           </div>

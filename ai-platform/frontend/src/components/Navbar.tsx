@@ -62,12 +62,14 @@ export default function Navbar() {
 
         <div className="flex items-center gap-4 md:gap-8">
           <div className="hidden md:flex items-center gap-8">
+            <Link href="/about" className={`text-sm font-bold tracking-wide transition-all ${isActive('/about') ? 'text-indigo-400 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]' : 'text-slate-400 hover:text-white'}`}>About</Link>
             <Link href="/search" className={`text-sm font-bold tracking-wide transition-all ${isActive('/search') ? 'text-indigo-400 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]' : 'text-slate-400 hover:text-white'}`}>Explore</Link>
             <Link href="/workflows" className={`text-sm font-bold tracking-wide transition-all ${isActive('/workflows') ? 'text-indigo-400 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]' : 'text-slate-400 hover:text-white'}`}>Workflows</Link>
             <Link href="/founders" className={`text-sm font-bold tracking-wide transition-all flex items-center gap-2 ${isActive('/founders') ? 'text-indigo-400' : 'text-slate-400 hover:text-white'}`}>
               Launch <span className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-300 text-[10px] px-2 py-0.5 rounded-full font-black uppercase tracking-widest border border-indigo-500/30 shadow-[0_0_10px_rgba(99,102,241,0.2)]">New</span>
             </Link>
             <Link href="/compare" className={`text-sm font-bold tracking-wide transition-all ${isActive('/compare') ? 'text-indigo-400 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]' : 'text-slate-400 hover:text-white'}`}>Compare</Link>
+            <Link href="/help" className={`text-sm font-bold tracking-wide transition-all ${isActive('/help') ? 'text-indigo-400 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]' : 'text-slate-400 hover:text-white'}`}>Help</Link>
           </div>
 
           <div className="flex items-center gap-3">
